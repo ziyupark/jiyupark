@@ -2,6 +2,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import Link from "next/link";
 import PageNav from "@/components/PageNav";
+import { getJsonFromR2 } from "@/lib/r2";
 
 export const dynamic = "force-dynamic";
 
@@ -30,10 +31,10 @@ function thumbClass(span: number): string {
   return "proj-thumb--narrow";
 }
 
-export default function Home() {
-  const projects = JSON.parse(
-    readFileSync(join(process.cwd(), "data", "projects.json"), "utf-8")
-  ) as Project[];
+export default async function Home() {
+  const projects =
+    (await getJsonFromR2<Project[]>("data/projects.json")) ??
+    (JSON.parse(readFileSync(join(process.cwd(), "data", "projects.json"), "utf-8")) as Project[]);
 
   return (
     <div className="pt-[0.66rem] pb-16 home-page">

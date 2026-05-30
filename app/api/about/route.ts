@@ -1,15 +1,23 @@
 import { NextResponse } from "next/server";
 import { readFileSync, writeFileSync } from "fs";
 import path from "path";
+import { getJsonFromR2, putJsonToR2 } from "@/lib/r2";
 
-const DATA = path.join(process.cwd(), "data", "about.json");
+const LOCAL = path.join(process.cwd(), "data", "about.json");
+const KEY = "data/about.json";
 
 export async function GET() {
-  return NextResponse.json(JSON.parse(readFileSync(DATA, "utf-8")));
+  const data = await getJsonFromR2(KEY);
+  if (data) return NextResponse.json(data);
+  return NextResponse.json(JSON.parse(readFileSync(LOCAL, "utf-8")));
 }
 
 export async function PUT(req: Request) {
   const body = await req.json();
-  writeFileSync(DATA, JSON.stringify(body, null, 2));
+  try {
+    await putJsonToR2(KEY, body);
+  } catch {
+    writeFileSync(LOCAL, JSON.stringify(body, null, 2));
+  }
   return NextResponse.json({ ok: true });
 }

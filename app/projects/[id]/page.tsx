@@ -6,6 +6,7 @@ import PageNav from "@/components/PageNav";
 import LinkEmbed from "@/components/LinkEmbed";
 import ScrollTop from "@/components/ScrollTop";
 import DandelionScene from "@/components/DandelionScene";
+import { getJsonFromR2 } from "@/lib/r2";
 
 export const dynamic = "force-dynamic";
 
@@ -120,9 +121,9 @@ function renderContentItem(item: ContentItem, i: number, ts: TextStyle = {}) {
 /* ─── ProjectPage ────────────────────────────────────── */
 export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const projects = JSON.parse(
-    readFileSync(join(process.cwd(), "data", "projects.json"), "utf-8")
-  ) as Project[];
+  const projects =
+    (await getJsonFromR2<Project[]>("data/projects.json")) ??
+    (JSON.parse(readFileSync(join(process.cwd(), "data", "projects.json"), "utf-8")) as Project[]);
 
   const project = projects.find(p => p.id === id);
   if (!project) notFound();
