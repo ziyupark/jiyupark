@@ -1,0 +1,39 @@
+{
+  "images": [
+    {
+      "src": "/uploads/IMG_8581.jpg"
+    },
+    {
+      "src": "/uploads/zu3.jpg"
+    },
+    {
+      "src": "/uploads/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202026-05-25%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.25.16.png"
+    },
+    {
+      "src": "/uploads/carol.jpeg"
+    },
+    {
+      "src": "/uploads/00.JPG"
+    },
+    {
+      "src": "/uploads/KakaoTalk_Photo_2026-05-25-21-36-00.jpeg"
+    },
+    {
+      "src": "/uploads/IMG_0801_1779714353449.jpg"
+    },
+    {
+      "src": "/uploads/KakaoTalk_Photo_2026-05-25-22-06-49.jpeg"
+    }
+  ],
+  "imageSize": 88,
+  "radius": 416,
+  "speed": 49,
+  "bioKo": "",
+  "bioEn": "Hi, I'm Jiyu Park, a product designer based in Seoul. With a background in visual graphic,\nbrand, and exhibition design, I've since expanded into product design creating interactive projects,\ndigital experiences, and small but memorable moments that spark curiosity.",
+  "email": "ziyupark.kr@gmail.com",
+  "bioLetterSpacing": -0.015,
+  "bioLineHeight": 1.5,
+  "bioFontSize": 18,
+  "bioFontWeight": 300,
+  "bioMaxWidth": 600
+}
